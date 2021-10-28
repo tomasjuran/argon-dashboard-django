@@ -4,4 +4,9 @@ services:
     container_name: appseed_app
     restart: always
     env_file: .env
-    build: . 
+    build:
+      context: .
+      network: host
+    network_mode: host
+    volumes:
+      - ./:/app

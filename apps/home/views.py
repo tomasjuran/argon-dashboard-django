@@ -9,10 +9,13 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
 
+from .models import Carreras
 
 @login_required(login_url="/login/")
 def index(request):
-    context = {'segment': 'index'}
+    for carrera in Carreras.objects.filter(codigo_carrera=17):
+        sistemas = carrera.nombre
+    context = {'segment': 'index', 'carrera': sistemas}
 
     html_template = loader.get_template('home/index.html')
     return HttpResponse(html_template.render(context, request))

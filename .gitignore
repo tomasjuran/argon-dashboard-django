@@ -1,3 +1,6 @@
+# settings
+settings_local.py
+
 # byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -13,6 +16,7 @@ __pycache__/
 
 # venv
 env
+venv
 .venv
 
 # other

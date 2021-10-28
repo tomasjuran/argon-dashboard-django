@@ -1,5 +1,7 @@
 FROM python:3.9
 
+WORKDIR /app
+
 COPY . .
 
 # set environment variables
@@ -11,6 +13,7 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 # running migrations
+RUN python manage.py makemigrations
 RUN python manage.py migrate
 
 # gunicorn
