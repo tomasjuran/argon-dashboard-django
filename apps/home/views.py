@@ -53,34 +53,3 @@ def pages(request):
         html_template = loader.get_template('home/page-500.html')
         return HttpResponse(html_template.render(context, request))
 
-
-@login_required(login_url="/login/")
-def planes(request):
-    context = {}
-    html_template = loader.get_template('home/planes.html')
-    return HttpResponse(html_template.render(context, request))
-
-@login_required(login_url="/login/")
-def competencias(request):
-    context = {}
-    html_template = loader.get_template('home/competencias.html')
-    return HttpResponse(html_template.render(context, request))
-
-@login_required(login_url="/login/")
-def asignaturas(request):
-    context = {}
-    html_template = loader.get_template('home/asignaturas.html')
-    return HttpResponse(html_template.render(context, request))
-
-@login_required(login_url="/login/")
-def titulos(request):
-    context = {}
-    html_template = loader.get_template('home/titulos.html')
-    return HttpResponse(html_template.render(context, request))
-
-@login_required(login_url="/login/")
-def optativas(request):
-    context = {}
-    html_template = loader.get_template('home/optativas.html')
-    return HttpResponse(html_template.render(context, request))
-
