@@ -10,11 +10,18 @@ from django.template import loader
 from django.urls import reverse
 
 from .models import Carreras
+from ..authentication.models import SimuladorUser
 
 @login_required(login_url="/login/")
 def index(request):
-    for carrera in Carreras.objects.filter(codigo_carrera=17):
-        sistemas = carrera.nombre
+    sistemas = None
+
+    user = SimuladorUser.objects.get(user=request.user)
+
+    sistemas = Carreras.objects.get(codigo_carrera=user.carrera).nombre
+
+    if sistemas is None: raise Exception("No está la carrera en la base de datos")
+
     context = {'segment': 'index', 'carrera': sistemas}
 
     html_template = loader.get_template('home/index.html')
@@ -45,3 +52,35 @@ def pages(request):
     except:
         html_template = loader.get_template('home/page-500.html')
         return HttpResponse(html_template.render(context, request))
+
+
+@login_required(login_url="/login/")
+def planes(request):
+    context = {}
+    html_template = loader.get_template('home/planes.html')
+    return HttpResponse(html_template.render(context, request))
+
+@login_required(login_url="/login/")
+def competencias(request):
+    context = {}
+    html_template = loader.get_template('home/competencias.html')
+    return HttpResponse(html_template.render(context, request))
+
+@login_required(login_url="/login/")
+def asignaturas(request):
+    context = {}
+    html_template = loader.get_template('home/asignaturas.html')
+    return HttpResponse(html_template.render(context, request))
+
+@login_required(login_url="/login/")
+def titulos(request):
+    context = {}
+    html_template = loader.get_template('home/titulos.html')
+    return HttpResponse(html_template.render(context, request))
+
+@login_required(login_url="/login/")
+def optativas(request):
+    context = {}
+    html_template = loader.get_template('home/optativas.html')
+    return HttpResponse(html_template.render(context, request))
+
