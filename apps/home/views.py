@@ -30,13 +30,13 @@ def pages(request):
 
         load_template = request.path.split('/')[-1]
         if load_template == '':
-            load_template = 'index.html'
+            load_template = 'index'
 
         if load_template == 'admin':
             return HttpResponseRedirect(reverse('admin:index'))
         context['segment'] = load_template
 
-        html_template = loader.get_template('home/' + load_template)
+        html_template = loader.get_template('home/' + load_template + '.html')
         return HttpResponse(html_template.render(context, request))
 
     except template.TemplateDoesNotExist:

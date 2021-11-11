@@ -7,7 +7,5 @@ from django.urls import re_path
 from apps.home import views
 
 urlpatterns = [
-    # Matches any html file
-    re_path(r'^.*\.*', views.pages, name='pages'),
-
+    re_path(r'^.*', views.pages, name='pages'),
 ]

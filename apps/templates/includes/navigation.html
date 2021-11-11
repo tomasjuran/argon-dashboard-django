@@ -1,11 +1,14 @@
-<nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+<nav class="navbar navbar-top navbar-expand navbar-dark bg-default border-bottom">
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <!-- Search form -->
+      <!-- Selector de plan de estudios -->
+      <h6 class="h2 text-white d-inline-block mb-0 mr-3">
+        {{carrera.nombre}}
+      </h6>
       <form class="form-inline mr-sm-3">
         <select id="selector-plan" class="custom-select">
         {% for plan in planes %}
-          <option value="{{plan.codigo_plan}}">Plan {{plan.codigo_plan}} - {{carrera.nombre}}</option>
+          <option value="{{plan.codigo_plan}}">Plan {{plan.codigo_plan}}</option>
         {% endfor %}
         </select>
       </form>
