@@ -7,7 +7,7 @@
       </h6>
       <form class="form-inline mr-sm-3">
         <select id="selector-plan" class="custom-select">
-        {% for plan in planes %}
+        {% for plan in planes_list %}
           <option value="{{plan.codigo_plan}}">Plan {{plan.codigo_plan}}</option>
         {% endfor %}
         </select>
