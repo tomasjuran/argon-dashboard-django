@@ -14,16 +14,13 @@ from ..authentication.models import SimuladorUser
 
 @login_required(login_url="/login/")
 def index(request):
-    sistemas = None
-
-    user = SimuladorUser.objects.get(user=request.user)
-
-    sistemas = Carreras.objects.get(codigo_carrera=user.carrera).nombre
-
-    if sistemas is None: raise Exception("No está la carrera en la base de datos")
-
-    context = {'segment': 'index', 'carrera': sistemas}
-
+    context = {'segment': 'index'}
+    try:
+        user = SimuladorUser.objects.get(user=request.user)
+        sistemas = Carreras.objects.get(codigo_carrera=user.carrera).nombre
+        context['carrera'] = sistemas
+    except:
+        pass
     html_template = loader.get_template('home/index.html')
     return HttpResponse(html_template.render(context, request))
 

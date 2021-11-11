@@ -1,6 +1,9 @@
 # settings
 settings_local.py
 
+# IDEs
+.vscode
+
 # byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
