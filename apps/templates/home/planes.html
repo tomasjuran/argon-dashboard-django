@@ -16,5 +16,64 @@
     </div>
   </div>
 </div>
+
+<!-- Page content -->
+<div class="container-fluid mt--6">
+	<div class="row">
+    <div class="col-xl-8 order-xl-1">
+      <div class="card">
+        <div class="card-body">
+          <!-- Lista de planes -->
+          {% for plan in planes_list %}
+            <div class="card">
+              <div class="card-body">
+                  <div class="row h-100">
+                    <h6 class="h2 mb-0 my-auto">Plan {{plan.codigo_plan}}</h6>
+                    <button class="btn btn-outline-danger px-3 my-auto eliminar-plan">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+              </div>
+            </div>
+          {% endfor %}
+
+          <hr class="my-4">
+
+          <!-- Información del plan -->
+          <div class="row align-items-center h-100">
+            <div class="col-8">
+              <h3 class="mb-0heading-small text-muted mb-4 my-auto">Información del Plan </h3>
+            </div>
+            <div class="col-4 text-right">
+              <button class="btn btn-sm btn-primary guardar-cambios"><i class="fas fa-save"></i> Guardar cambios</button>
+            </div>
+          </div>
+
+          <div class="pl-lg-4">
+            <!-- Código -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="form-control-label" for="codigo-plan">Código</label>
+                  <input id="codigo-plan" class="form-control" placeholder="Código del plan" value="" type="text">
+                </div>
+              </div>
+            </div>
+            <!-- Resolución -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="form-control-label">Resolución</label>
+                  <textarea rows="4" class="form-control" placeholder="Resolución ..."></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
           
 {% endblock content %}
