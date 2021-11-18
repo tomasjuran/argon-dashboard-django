@@ -1,5 +1,15 @@
 {% extends 'layouts/base.html' %}
 
+{% load static %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="/static/assets/css/planes.css">
+{% endblock %}
+
+{% block javascripts %}
+  <script src="/static/assets/js/planes.js"></script>
+{% endblock %}
+
 {% block title %} Planes {% endblock title %}
 
 {% block content %}
@@ -24,18 +34,20 @@
       <div class="card">
         <div class="card-body">
           <!-- Lista de planes -->
-          {% for plan in planes_list %}
-            <div class="card">
-              <div class="card-body">
-                  <div class="row h-100">
-                    <h6 class="h2 mb-0 my-auto">Plan {{plan.codigo_plan}}</h6>
-                    <button class="btn btn-outline-danger px-3 my-auto eliminar-plan">
-                      <i class="fas fa-trash"></i>
-                    </button>
-                  </div>
+          <div class="radio-group">
+            {% for plan in planes_list %}
+              <div class="card radio a">
+                <div class="card-body">
+                    <div class="row h-100">
+                      <h6 class="h2 mb-0 my-auto">Plan {{plan.codigo_plan}}</h6>
+                      <button class="btn btn-circle btn-md btn-danger my-auto mx-5 eliminar-plan">
+                        <i class="fas fa-trash"></i>
+                      </button>
+                    </div>
+                </div>
               </div>
-            </div>
-          {% endfor %}
+            {% endfor %}
+          </div>
 
           <hr class="my-4">
 
